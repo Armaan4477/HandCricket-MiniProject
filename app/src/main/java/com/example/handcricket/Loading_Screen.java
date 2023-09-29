@@ -22,7 +22,7 @@ public class Loading_Screen extends AppCompatActivity {
             Intent intent = new Intent(Loading_Screen.this, Toss.class);
             startActivity(intent);
             finish(); // Close the Loading_Screen activity
-        }, 3000); // Adjust the delay time as needed (e.g., 5000 milliseconds or 5 seconds)
+        }, 5000); // Adjust the delay time as needed (e.g., 5000 milliseconds or 5 seconds)
     }
 
 
@@ -42,7 +42,7 @@ public class Loading_Screen extends AppCompatActivity {
 
             }
         };
-        t.schedule(tt,0,30);
+        t.schedule(tt,0,50);
 
     }
 
