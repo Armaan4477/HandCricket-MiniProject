@@ -1,0 +1,34 @@
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="16dp">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Credits"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:gravity="center"
+    android:padding="8dp"
+    tools:ignore="HardcodedText" />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Developed/Coded/Debugged by: \n Samay Pandey B-09 \n Adwait Patil B-11  \n\n Special credit for helping:\n Armaan Nakhuda"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    tools:ignore="HardcodedText" />
+
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="16dp" />
+
+
+
+</LinearLayout>
