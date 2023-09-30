@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         if (innings == 1) {
             if (a == b) {
                 videoout();
+                TimeUnit.SECONDS.sleep(3);
                 Toast.makeText(this, choice == 1 ? "YOU ARE OUT!!" : "COMPUTER IS OUT!!", Toast.LENGTH_SHORT).show();
                 TimeUnit.SECONDS.sleep(2);
                 Target = (choice == 1 ? Total : Total1) + 1;
