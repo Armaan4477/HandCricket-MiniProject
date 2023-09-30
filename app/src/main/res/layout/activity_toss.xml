@@ -4,53 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gamebackground"
     tools:context=".Toss">
 
-    <Button
-        android:id="@+id/button9"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="tails"
-        android:text="Tails"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="341dp" />
+        android:layout_marginTop="222dp"
+        android:text="Make Your Choice"
+        android:textColor="#F44336"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:layout_marginStart="64dp"
+        android:onClick="heads"
+        android:text="Heads"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="heads"
-        android:text="Heads"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="341dp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:text="MAKE YOUR CHOICE"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:background="#4CAF50"
+        android:layout_marginEnd="60dp"
+        android:onClick="tails"
+        android:text="Tails"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button11"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="bat"
+        android:layout_marginTop="72dp"
+        android:background="#4CAF50"
+        android:backgroundTint="#4CAF50"
         android:text="Bat"
+        android:onClick="bat"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="bowl"
+        android:layout_marginTop="72dp"
+        android:background="#4CAF50"
+        android:backgroundTint="#4CAF50"
         android:text="Bowl"
+        android:onClick="bowl"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintStart_toStartOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

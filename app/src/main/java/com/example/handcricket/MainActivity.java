@@ -6,13 +6,17 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog1;
     Dialog dialog2;
     Intent i1=getIntent();
+    VideoView video2;
+
 
     private int choice = 1;
 
@@ -78,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (innings == 1) {
             if (a == b) {
+                videoout();
                 Toast.makeText(this, choice == 1 ? "YOU ARE OUT!!" : "COMPUTER IS OUT!!", Toast.LENGTH_SHORT).show();
                 TimeUnit.SECONDS.sleep(2);
                 Target = (choice == 1 ? Total : Total1) + 1;
@@ -201,5 +208,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
+    public void videoout() {
+        VideoView out1 = (VideoView) findViewById(R.id.videoView);
+        out1.bringToFront();
+        out1.setVisibility(View.VISIBLE);
+        String path = "android.resource://com.example.handcricket/" + R.raw.out;
+        Uri u = Uri.parse(path);
+        out1.setVideoURI(u);
+        out1.start();
+        out1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                out1.setVisibility(View.GONE);
+            }
+        });
     }
+    }
+

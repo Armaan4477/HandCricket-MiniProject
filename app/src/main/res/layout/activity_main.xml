@@ -6,12 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gamebackground"
     tools:context=".MainActivity">
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/toss"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:lottie_autoPlay="true"/>
+
 
     <Button
         android:id="@+id/button4"
@@ -52,14 +47,13 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="17dp"
+        android:layout_marginStart="1dp"
         android:layout_marginBottom="17dp"
         android:onClick="button1"
         android:text="1"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/button4" />
 
     <Button
         android:id="@+id/button2"
@@ -86,17 +80,17 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="12dp"
         android:text="@string/total_score"
         app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="11dp"
         android:text="@string/target"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -108,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/hand_cricket"
-        android:textColor="#0800FF"
+        android:textColor="#F44336"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
@@ -136,6 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="@string/rules"
+        android:textColor="#F44336"
         app:layout_constraintStart_toStartOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
@@ -143,13 +138,15 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginBottom="205dp"
+        android:layout_marginBottom="217dp"
         android:text="@string/you_win_the_game"
         android:textAllCaps="true"
-        android:textSize="40sp"
+        android:textColor="#F44336"
+        android:textSize="35sp"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -158,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
+        android:background="#81231C"
         android:contentDescription="TODO"
         android:onClick="pause"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +163,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_media_pause" />
 
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-195dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

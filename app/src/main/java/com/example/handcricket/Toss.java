@@ -70,7 +70,7 @@ public class Toss extends AppCompatActivity {
 
     private void hideButtons() {
         findViewById(R.id.button8).setVisibility(View.INVISIBLE);
-        findViewById(R.id.button9).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button7).setVisibility(View.INVISIBLE);
         findViewById(R.id.textView6).setVisibility(View.INVISIBLE);
         findViewById(R.id.button10).setVisibility(View.VISIBLE);
         findViewById(R.id.button11).setVisibility(View.VISIBLE);
