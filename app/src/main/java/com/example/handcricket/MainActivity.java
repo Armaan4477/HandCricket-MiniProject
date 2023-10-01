@@ -155,8 +155,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 3000); // 3000 milliseconds (3 seconds)
     }
-    public void Reset(View adk)
-    {
+    public void Reset(View adk) throws InterruptedException {
         Target=0;
         Total=0;
         Total1=0;
@@ -164,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
         innings=1;
         ((TextView)findViewById(R.id.textView5)).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.textView4)).setText("Total Score-");
+
+        enableButtons();
     }
    public void pause(View v2){
        if(dialog1!=null){
