@@ -124,9 +124,11 @@ public class MainActivity extends AppCompatActivity {
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
+                    disableButtons();
                 } else {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU WIN THE GAME" : "YOU LOSE THE GAME");
+                    disableButtons();
                 }
             } else {
                 if (choice == 1) {
@@ -138,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
+                    disableButtons();
                 }
             }
         }
