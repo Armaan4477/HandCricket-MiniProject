@@ -12,8 +12,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="17dp"
         android:layout_marginBottom="17dp"
         android:onClick="button4"
         android:text="@string/_4"
@@ -25,7 +24,7 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
+        android:layout_marginEnd="17dp"
         android:layout_marginBottom="17dp"
         android:onClick="button5"
         android:text="@string/_5"
@@ -37,6 +36,7 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="17dp"
         android:onClick="button6"
         android:text="@string/_6"
@@ -48,27 +48,22 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="16dp"
         android:onClick="button1"
         android:text="1"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/button4" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
         android:layout_marginBottom="17dp"
         android:onClick="button2"
         android:text="@string/_2"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button1" />
+        app:layout_constraintStart_toStartOf="@+id/button5" />
 
     <Button
         android:id="@+id/button3"
@@ -78,60 +73,51 @@
         android:onClick="button3"
         android:text="@string/_3"
         app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/button6" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
+        android:layout_marginEnd="22dp"
         android:text="@string/total_score"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="11dp"
         android:text="@string/target"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/hand_cricket"
         android:textColor="#F44336"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@id/button2"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="2dp"
         android:background="@color/material_dynamic_primary50"
         android:contentDescription="@string/_todo"
         android:onClick="act2"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_menu_agenda"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -139,33 +125,34 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginEnd="9dp"
         android:text="@string/rules"
         android:textColor="#F44336"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="217dp"
+        android:layout_marginTop="460dp"
         android:text="@string/you_win_the_game"
         android:textAllCaps="true"
         android:textColor="#F44336"
         android:textSize="35sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="1dp"
         android:background="#81231C"
         android:contentDescription="TODO"
         android:onClick="pause"
@@ -178,15 +165,14 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/computer"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="47dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="30dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/player"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
         app:lottie_autoPlay="true"
         tools:ignore="MissingConstraints" />
 
@@ -194,12 +180,11 @@
         android:id="@+id/player"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="291dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/computer"
+        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         tools:ignore="MissingConstraints" />
 
