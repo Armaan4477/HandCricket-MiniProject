@@ -63,31 +63,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void button1(View view1) throws InterruptedException {
-        Hand(1);}
+        Hand(1);
+
+        ;
+    }
     public void button2(View view2) throws InterruptedException {
-        Hand(2);}
+        Hand(2);
+
+    }
     public void button3(View view3) throws InterruptedException {
-        Hand(3);}
+        Hand(3);
+
+    }
     public void button4(View view4) throws InterruptedException {
-        Hand(4);}
+        Hand(4);
+
+    }
     public void button5(View view5) throws InterruptedException {
-        Hand(5);}
+        Hand(5);
+
+    }
     public void button6(View view6) throws InterruptedException {
-        Hand(6);}
+        Hand(6);
+
+    }
 
 
 
     @SuppressLint("SetTextI18n")
     public void Hand(int a) throws InterruptedException {
+        disableButtons();
         Random random = new Random();
         int b = (random.nextInt(6)) + 1;
-
+        playAnimationplayer(a);
+        playAnimationComputer(b);
         if (innings == 1) {
             if (a == b) {
                 videoout();
-                TimeUnit.SECONDS.sleep(3);
+
                 Toast.makeText(this, choice == 1 ? "YOU ARE OUT!!" : "COMPUTER IS OUT!!", Toast.LENGTH_SHORT).show();
-                TimeUnit.SECONDS.sleep(2);
+
                 Target = (choice == 1 ? Total : Total1) + 1;
                 innings = 2;
                 Toast.makeText(this, choice == 1 ? "NOW ITS COMPUTERS TURN" : "NOW IT'S YOUR TURN", Toast.LENGTH_SHORT).show();
@@ -104,16 +119,14 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (innings == 2) {
             if (a == b) {
-                Toast.makeText(this, choice == 1 ? "COMPUTER IS OUT!!" : "YOU IS OUT!!", Toast.LENGTH_SHORT).show();
-                TimeUnit.SECONDS.sleep(2);
+                videoout();
+                Toast.makeText(this, choice == 1 ? "COMPUTER IS OUT!!" : "YOU ARE OUT!!", Toast.LENGTH_SHORT).show();
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
-                    Reset(); // Reset the game after a win
                 } else {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU WIN THE GAME" : "YOU LOSE THE GAME");
-                    Reset(); // Reset the game after a win
                 }
             } else {
                 if (choice == 1) {
@@ -125,31 +138,20 @@ public class MainActivity extends AppCompatActivity {
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
-                    Reset(); // Reset the game after a win
                 }
             }
         }
-    }
-
-
-    public void Reset() {
-        Target = 0;
-        Total = 0;
-        Total1 = 0;
-        innings = 1;
-        ((TextView) findViewById(R.id.textView5)).setVisibility(View.INVISIBLE);
-        ((TextView) findViewById(R.id.textView4)).setText("Total Score-0");
-
-        // Delay showing the result view for a few seconds
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ((TextView) findViewById(R.id.textView9)).setVisibility(View.INVISIBLE);
+                try {
+                    enableButtons();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }, 2500);
+        }, 3000); // 3000 milliseconds (3 seconds)
     }
-
     public void Reset(View adk)
     {
         Target=0;
@@ -223,6 +225,93 @@ public class MainActivity extends AppCompatActivity {
                 out1.setVisibility(View.GONE);
             }
         });
+    }
+    public void playAnimationplayer(int a) throws InterruptedException {
+        LottieAnimationView player = findViewById(R.id.player);
+        player.bringToFront();
+        player.setVisibility(View.VISIBLE);
+        switch (a) {
+            case 1:
+                player.setAnimation(R.raw.one);
+                break;
+            case 2:
+                player.setAnimation(R.raw.two);
+                break;
+            case 3:
+                player.setAnimation(R.raw.three);
+                break;
+            case 4:
+                player.setAnimation(R.raw.four);
+                break;
+            case 5:
+                player.setAnimation(R.raw.five);
+                break;
+            case 6:
+                player.setAnimation(R.raw.six);
+                break;
+        }
+        player.playAnimation();
+        player.addAnimatorListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                player.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+    public void playAnimationComputer(int b)throws InterruptedException{
+
+        LottieAnimationView computer = findViewById(R.id.computer);
+        computer.bringToFront();
+        computer.setVisibility(View.VISIBLE);
+        switch(b){
+            case 1:
+                computer.setAnimation(R.raw.one);
+                break;
+            case 2:
+                computer.setAnimation(R.raw.two);
+                break;
+            case 3:
+                computer.setAnimation(R.raw.three);
+                break;
+            case 4:
+                computer.setAnimation(R.raw.four);
+                break;
+            case 5:
+                computer.setAnimation(R.raw.five);
+                break;
+            case 6:
+                computer.setAnimation(R.raw.six);
+                break;
+        }
+        computer.playAnimation();
+        computer.addAnimatorListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                computer.setVisibility(View.GONE);
+            }
+        });
+    }
+    public void disableButtons(){
+        findViewById(R.id.button1).setClickable(false);
+        findViewById(R.id.button2).setClickable(false);
+        findViewById(R.id.button3).setClickable(false);
+        findViewById(R.id.button4).setClickable(false);
+        findViewById(R.id.button5).setClickable(false);
+        findViewById(R.id.button6).setClickable(false);
+        findViewById(R.id.imageButton).setClickable(false);
+
+    }
+    public void enableButtons() throws InterruptedException{
+        findViewById(R.id.button1).setClickable(true);
+        findViewById(R.id.button2).setClickable(true);
+        findViewById(R.id.button3).setClickable(true);
+        findViewById(R.id.button4).setClickable(true);
+        findViewById(R.id.button5).setClickable(true);
+        findViewById(R.id.button6).setClickable(true);
+        findViewById(R.id.imageButton).setClickable(true);
+    }
+    public void delay()throws InterruptedException{
+        TimeUnit.SECONDS.sleep(3);
     }
     }
 

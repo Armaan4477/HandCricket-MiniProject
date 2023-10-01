@@ -7,11 +7,23 @@
     android:background="@drawable/gamebackground"
     tools:context=".Toss">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/toss"
+        android:layout_width="0dp"
+        android:layout_height="375dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="222dp"
+        android:layout_marginTop="16dp"
         android:text="Make Your Choice"
         android:textColor="#F44336"
         android:textSize="35dp"
@@ -21,50 +33,51 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#4CAF50"
-        android:layout_marginStart="64dp"
-        android:onClick="heads"
-        android:text="Heads"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button10"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
         android:layout_marginEnd="60dp"
+        android:background="#4CAF50"
         android:onClick="tails"
         android:text="Tails"
         app:layout_constraintBaseline_toBaselineOf="@+id/button11"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:background="#4CAF50"
-        android:backgroundTint="#4CAF50"
-        android:text="Bat"
-        android:onClick="bat"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <Button
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginBottom="9dp"
         android:background="#4CAF50"
         android:backgroundTint="#4CAF50"
-        android:text="Bowl"
         android:onClick="bowl"
+        android:text="Bowl"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button8" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:background="#4CAF50"
+        android:backgroundTint="#4CAF50"
+        android:onClick="bat"
+        android:text="Bat"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:background="#4CAF50"
+        android:onClick="heads"
+        android:text="Heads"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button10" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

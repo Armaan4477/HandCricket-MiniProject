@@ -15,14 +15,6 @@
         android:onClick="resume"/>
 
     <Button
-        android:id="@+id/reset"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_centerHorizontal="true"
-        android:onClick="Reset" />
-
-    <Button
         android:id="@+id/new_game_button"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
