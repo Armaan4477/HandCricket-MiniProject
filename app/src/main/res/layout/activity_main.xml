@@ -159,7 +159,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        app:srcCompat="@android:drawable/ic_media_pause"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
     <com.airbnb.lottie.LottieAnimationView
