@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,10 +40,11 @@
         android:background="#4CAF50"
         android:onClick="tails"
         android:text="Tails"
+        android:textColor="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/button11"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,11 +53,12 @@
         android:backgroundTint="#4CAF50"
         android:onClick="bowl"
         android:text="Bowl"
+        android:textColor="#000000"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button8" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,11 +67,12 @@
         android:backgroundTint="#4CAF50"
         android:onClick="bat"
         android:text="Bat"
+        android:textColor="#000000"
         android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@+id/button7"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,6 +80,7 @@
         android:background="#4CAF50"
         android:onClick="heads"
         android:text="Heads"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button10" />
 
