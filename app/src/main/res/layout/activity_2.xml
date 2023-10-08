@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="330dp"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <ImageButton
@@ -17,28 +17,33 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="match_parent"
         android:text="RULES-" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="match_parent"
         android:text="\n\n1]You will always bat first." />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="match_parent"
         android:text="\n\n2]If the number entered by you and \nthe computer is same then you are out." />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="match_parent"
         android:text="\n\n3]If the number is different then it \nwill be added to the total Score"/>
     <TextView
         android:id="@+id/textView7"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="\n\n4]After the 1st innings the computer \nwill try and chase your target." />
@@ -46,6 +51,7 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="match_parent"
         android:text="\n\n5]Same rules apply for the computer." />
 
