@@ -18,7 +18,8 @@
         android:text="@string/_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_color"/>
 
     <Button
         android:id="@+id/button5"
@@ -30,7 +31,8 @@
         android:text="@string/_5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        android:background="@drawable/button_color"/>
 
     <Button
         android:id="@+id/button6"
@@ -42,7 +44,8 @@
         android:text="@string/_6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        android:background="@drawable/button_color"/>
 
     <Button
         android:id="@+id/button1"
@@ -53,7 +56,8 @@
         android:text="1"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4" />
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        android:background="@drawable/button_color"/>
 
     <Button
         android:id="@+id/button2"
@@ -63,7 +67,8 @@
         android:onClick="button2"
         android:text="@string/_2"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="@+id/button5" />
+        app:layout_constraintStart_toStartOf="@+id/button5"
+        android:background="@drawable/button_color"/>
 
     <Button
         android:id="@+id/button3"
@@ -73,7 +78,8 @@
         android:onClick="button3"
         android:text="@string/_3"
         app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="@+id/button6" />
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        android:background="@drawable/button_color"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -159,8 +165,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_pause"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:srcCompat="@android:drawable/ic_media_pause" />
 
 
     <com.airbnb.lottie.LottieAnimationView
@@ -209,7 +214,8 @@
         android:onClick="Reset"
         android:text="Reset"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:background="@drawable/button_color"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
