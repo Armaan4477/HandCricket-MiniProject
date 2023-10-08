@@ -296,23 +296,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void disableButtons(){
-        findViewById(R.id.button1).setClickable(false);
-        findViewById(R.id.button2).setClickable(false);
-        findViewById(R.id.button3).setClickable(false);
-        findViewById(R.id.button4).setClickable(false);
-        findViewById(R.id.button5).setClickable(false);
-        findViewById(R.id.button6).setClickable(false);
-        findViewById(R.id.imageButton).setClickable(false);
+        findViewById(R.id.button1).setEnabled(false);
+        findViewById(R.id.button2).setEnabled(false);
+        findViewById(R.id.button3).setEnabled(false);
+        findViewById(R.id.button4).setEnabled(false);
+        findViewById(R.id.button5).setEnabled(false);
+        findViewById(R.id.button6).setEnabled(false);
+        findViewById(R.id.imageButton).setEnabled(false);
 
     }
     public void enableButtons() throws InterruptedException{
-        findViewById(R.id.button1).setClickable(true);
-        findViewById(R.id.button2).setClickable(true);
-        findViewById(R.id.button3).setClickable(true);
-        findViewById(R.id.button4).setClickable(true);
-        findViewById(R.id.button5).setClickable(true);
-        findViewById(R.id.button6).setClickable(true);
-        findViewById(R.id.imageButton).setClickable(true);
+        findViewById(R.id.button1).setEnabled(true);
+        findViewById(R.id.button2).setEnabled(true);
+        findViewById(R.id.button3).setEnabled(true);
+        findViewById(R.id.button4).setEnabled(true);
+        findViewById(R.id.button5).setEnabled(true);
+        findViewById(R.id.button6).setEnabled(true);
+        findViewById(R.id.imageButton).setEnabled(true);
     }
     public void delay()throws InterruptedException{
         TimeUnit.SECONDS.sleep(3);

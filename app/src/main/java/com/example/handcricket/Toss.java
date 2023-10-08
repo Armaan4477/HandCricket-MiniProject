@@ -107,8 +107,8 @@ public class Toss extends AppCompatActivity {
         finish();
     }
     public void disableButtons(){
-        findViewById(R.id.button7).setClickable(false);
-        findViewById(R.id.button8).setClickable(false);
+        findViewById(R.id.button7).setEnabled(false);
+        findViewById(R.id.button8).setEnabled(false);
 
     }
 }
