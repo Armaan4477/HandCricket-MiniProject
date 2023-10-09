@@ -219,6 +219,8 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"

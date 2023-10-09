@@ -109,11 +109,44 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.textView5).setVisibility(View.VISIBLE);
                 ((TextView) findViewById(R.id.textView5)).setText("Target-" + Target);
                 ((TextView) findViewById(R.id.textView4)).setText("Total Score-0");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            enableButtons();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, 3000); // 3000 milliseconds (3 seconds)
+
             } else {
                 if (choice == 1) {
                     Total += a;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                enableButtons();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }, 3000); // 3000 milliseconds (3 seconds)
+
                 } else {
                     Total1 += b;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                enableButtons();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }, 3000); // 3000 milliseconds (3 seconds)
+
                 }
                 ((TextView) findViewById(R.id.textView4)).setText("Total Score-" + (choice == 1 ? Total : Total1));
             }
@@ -133,8 +166,30 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 if (choice == 1) {
                     Total1 += b;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                enableButtons();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }, 3000); // 3000 milliseconds (3 seconds)
+
                 } else {
                     Total += a;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                enableButtons();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }, 3000); // 3000 milliseconds (3 seconds)
+
                 }
                 ((TextView) findViewById(R.id.textView4)).setText("Total Score-" + (choice == 1 ? Total1 : Total));
                 if ((choice == 1 ? Total1 : Total) >= Target) {
@@ -144,16 +199,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    enableButtons();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }, 3000); // 3000 milliseconds (3 seconds)
     }
     public void Reset(View adk) throws InterruptedException {
         Target=0;
