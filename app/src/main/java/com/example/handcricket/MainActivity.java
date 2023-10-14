@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     int over=0;
     int win=0;
     int lose=0;
-
+    int d=0;
 
     private int choice = 1;
 
@@ -166,10 +166,22 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
                     disableButtons();
+                    if (choice == 1) {
+                        lose++;
+                    } else {
+                        win++;
+                    }
+                    gameend(4000);
                     over=1;
                 } else {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU WIN THE GAME" : "YOU LOSE THE GAME");
+                    if (choice == 1) {
+                        win++;
+                    } else {
+                        lose++;
+                    }
+                    gameend(4000);
                     disableButtons();
                     over=1;
                 }
@@ -178,44 +190,49 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                             buttonsvis();
                     }
-                }, 5000); // 5000 milliseconds (5 seconds)
+                }, 12000); // 5000 milliseconds (5 seconds)
             } else {
+                buttonsinvis();
                 if (choice == 1) {
                     Total1 += b;
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                enableButtons();
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }, 3000); // 3000 milliseconds (3 seconds)
 
                 } else {
                     Total += a;
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                enableButtons();
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }, 3000); // 3000 milliseconds (3 seconds)
 
                 }
                 ((TextView) findViewById(R.id.textView4)).setText("Total Score-" + (choice == 1 ? Total1 : Total));
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
-                    disableButtons();
+                    if (choice == 1) {
+                        lose++;
+                    } else {
+                        win++;
+                    }
+                    gameend(d);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            buttonsvis();
+                        }
+                    }, 8000); // 5000 milliseconds (5 seconds)
                     over=1;
                 }
             }
         }
+        if(!(win==1||lose==1))
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    buttonsvis();
+                    try {
+                        enableButtons();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }, 3000); // 3000 milliseconds (3 seconds)
+        disableButtons();
         if(over==1)
             disableButtons();
     }
@@ -223,6 +240,8 @@ public class MainActivity extends AppCompatActivity {
         Target=0;
         Total=0;
         Total1=0;
+        win=0;
+        lose=0;
         ((TextView)findViewById(R.id.textView9)).setVisibility(View.INVISIBLE);
         innings=1;
         ((TextView)findViewById(R.id.textView5)).setVisibility(View.INVISIBLE);
@@ -283,34 +302,43 @@ public class MainActivity extends AppCompatActivity {
         VideoView out1 = (VideoView) findViewById(R.id.videoView);
         out1.bringToFront();
         out1.setVisibility(View.VISIBLE);
-        /*String path = "android.resource://com.example.handcricket/" + R.raw.out;
-        Uri u = Uri.parse(path);
-        out1.setVideoURI(u);*/
-        switch(a){
-            case 1:
                 String path = "android.resource://com.example.handcricket/" + R.raw.out;
                 Uri u = Uri.parse(path);
                 out1.setVideoURI(u);
-                //out1.start();
-                break;
-            case 2:
-                String path1 = "android.resource://com.example.handcricket/" + R.raw.victory;
-                Uri u1 = Uri.parse(path1);
-                out1.setVideoURI(u1);
-                //out1.start();
-            case 3:
-                String path2 = "android.resource://com.example.handcricket/" + R.raw.defeat;
-                Uri u2 = Uri.parse(path2);
-                out1.setVideoURI(u2);
-                //out1.start();
-        }
-        out1.start();
-        out1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                out1.start();
+                out1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 out1.setVisibility(View.GONE);
-            }
-        });
+            }});
+        }
+    public void gameend(int d){
+        VideoView out1 = (VideoView) findViewById(R.id.videoView);
+        out1.bringToFront();
+        out1.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(win==1||lose==1){
+                    VideoView out1 = (VideoView) findViewById(R.id.videoView);
+                    out1.bringToFront();
+                    out1.setVisibility(View.VISIBLE);
+                    String path = null;
+                    if(win==1){
+                        path = "android.resource://com.example.handcricket/" + R.raw.victory;}
+                    else if(lose==1){
+                        path = "android.resource://com.example.handcricket/" + R.raw.defeat;}
+                    Uri u = Uri.parse(path);
+                    out1.setVideoURI(u);
+                    out1.start();
+                    out1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            out1.setVisibility(View.GONE);
+                        }});
+
+                }}
+        }, d); // 4000 milliseconds (4 seconds)
     }
     public void playAnimationplayer(int a) throws InterruptedException {
         LottieAnimationView player = findViewById(R.id.player);
