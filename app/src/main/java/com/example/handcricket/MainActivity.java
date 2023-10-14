@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     Intent i1=getIntent();
     VideoView video2;
     int over=0;
+    int win=0;
+    int lose=0;
 
 
     private int choice = 1;
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         if (innings == 1) {
             if (a == b) {
                 buttonsinvis();
-                videoout(1);
+                videoout();
 
                 Toast.makeText(this, choice == 1 ? "YOU ARE OUT!!" : "COMPUTER IS OUT!!", Toast.LENGTH_SHORT).show();
 
@@ -158,62 +160,18 @@ public class MainActivity extends AppCompatActivity {
         } else if (innings == 2) {
             if (a == b) {
                 buttonsinvis();
-                videoout(1);
+                videoout();
                 Toast.makeText(this, choice == 1 ? "COMPUTER IS OUT!!" : "YOU ARE OUT!!", Toast.LENGTH_SHORT).show();
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
                     disableButtons();
                     over=1;
-                    if(Total>=Target){
-                        buttonsinvis();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                videoout(2);
-                            }
-                        }, 10000); // 5000 milliseconds (5 seconds)
-
-                    }
-                    if(Total1>=Target){
-                        buttonsinvis();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                videoout(2);
-                            }
-                        }, 10000); // 5000 milliseconds (5 seconds)
-                        }
                 } else {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU WIN THE GAME" : "YOU LOSE THE GAME");
                     disableButtons();
                     over=1;
-                    if(Total>=Target){
-                        buttonsinvis();
-                        sleep(5000);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                buttonsvis();
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        videoout(3);
-                                    }
-                                }, 5000); // 5000 milliseconds (5 seconds)
-                            }
-                        }, 5000); // 5000 milliseconds (5 seconds)
-                    }
-                    if(Total1>=Target){
-                        buttonsinvis();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                buttonsvis();
-                            }
-                        }, 5000); // 5000 milliseconds (5 seconds)
-                        }
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -256,37 +214,6 @@ public class MainActivity extends AppCompatActivity {
                     disableButtons();
                     over=1;
                 }
-                if(Total>=Target){
-                    buttonsinvis();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            buttonsvis();
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    videoout(2);
-                                }
-                            }, 5000); // 5000 milliseconds (5 seconds)
-                        }
-                    }, 5000); // 5000 milliseconds (5 seconds)
-                }
-                if(Total1>=Target){
-                    buttonsinvis();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            buttonsvis();
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    videoout(3);
-                                }
-                            }, 5000); // 5000 milliseconds (5 seconds)
-                        }
-                    }, 5000); // 5000 milliseconds (5 seconds)
-                }
-
             }
         }
         if(over==1)
@@ -352,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void videoout(int a) {
+    public void videoout() {
         VideoView out1 = (VideoView) findViewById(R.id.videoView);
         out1.bringToFront();
         out1.setVisibility(View.VISIBLE);
