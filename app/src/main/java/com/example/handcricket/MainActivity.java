@@ -1,5 +1,7 @@
 package com.example.handcricket;
 
+import static java.lang.Thread.sleep;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog2;
     Intent i1=getIntent();
     VideoView video2;
+    int over=0;
 
 
     private int choice = 1;
@@ -99,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
         playAnimationComputer(b);
         if (innings == 1) {
             if (a == b) {
-                videoout();
+                buttonsinvis();
+                videoout(1);
 
                 Toast.makeText(this, choice == 1 ? "YOU ARE OUT!!" : "COMPUTER IS OUT!!", Toast.LENGTH_SHORT).show();
 
@@ -114,11 +118,12 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             enableButtons();
+                            buttonsvis();
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
                     }
-                }, 3000); // 3000 milliseconds (3 seconds)
+                }, 5000); // 5000 milliseconds (5 seconds)
 
             } else {
                 if (choice == 1) {
@@ -152,17 +157,70 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (innings == 2) {
             if (a == b) {
-                videoout();
+                buttonsinvis();
+                videoout(1);
                 Toast.makeText(this, choice == 1 ? "COMPUTER IS OUT!!" : "YOU ARE OUT!!", Toast.LENGTH_SHORT).show();
                 if ((choice == 1 ? Total1 : Total) >= Target) {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
                     disableButtons();
+                    over=1;
+                    if(Total>=Target){
+                        buttonsinvis();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                videoout(2);
+                            }
+                        }, 10000); // 5000 milliseconds (5 seconds)
+
+                    }
+                    if(Total1>=Target){
+                        buttonsinvis();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                videoout(2);
+                            }
+                        }, 10000); // 5000 milliseconds (5 seconds)
+                        }
                 } else {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU WIN THE GAME" : "YOU LOSE THE GAME");
                     disableButtons();
+                    over=1;
+                    if(Total>=Target){
+                        buttonsinvis();
+                        sleep(5000);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                buttonsvis();
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        videoout(3);
+                                    }
+                                }, 5000); // 5000 milliseconds (5 seconds)
+                            }
+                        }, 5000); // 5000 milliseconds (5 seconds)
+                    }
+                    if(Total1>=Target){
+                        buttonsinvis();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                buttonsvis();
+                            }
+                        }, 5000); // 5000 milliseconds (5 seconds)
+                        }
                 }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                            buttonsvis();
+                    }
+                }, 5000); // 5000 milliseconds (5 seconds)
             } else {
                 if (choice == 1) {
                     Total1 += b;
@@ -196,9 +254,43 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.textView9).setVisibility(View.VISIBLE);
                     ((TextView) findViewById(R.id.textView9)).setText(choice == 1 ? "YOU LOSE THE GAME" : "YOU WIN THE GAME");
                     disableButtons();
+                    over=1;
                 }
+                if(Total>=Target){
+                    buttonsinvis();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            buttonsvis();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    videoout(2);
+                                }
+                            }, 5000); // 5000 milliseconds (5 seconds)
+                        }
+                    }, 5000); // 5000 milliseconds (5 seconds)
+                }
+                if(Total1>=Target){
+                    buttonsinvis();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            buttonsvis();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    videoout(3);
+                                }
+                            }, 5000); // 5000 milliseconds (5 seconds)
+                        }
+                    }, 5000); // 5000 milliseconds (5 seconds)
+                }
+
             }
         }
+        if(over==1)
+            disableButtons();
     }
     public void Reset(View adk) throws InterruptedException {
         Target=0;
@@ -260,13 +352,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void videoout() {
+    public void videoout(int a) {
         VideoView out1 = (VideoView) findViewById(R.id.videoView);
         out1.bringToFront();
         out1.setVisibility(View.VISIBLE);
-        String path = "android.resource://com.example.handcricket/" + R.raw.out;
+        /*String path = "android.resource://com.example.handcricket/" + R.raw.out;
         Uri u = Uri.parse(path);
-        out1.setVideoURI(u);
+        out1.setVideoURI(u);*/
+        switch(a){
+            case 1:
+                String path = "android.resource://com.example.handcricket/" + R.raw.out;
+                Uri u = Uri.parse(path);
+                out1.setVideoURI(u);
+                //out1.start();
+                break;
+            case 2:
+                String path1 = "android.resource://com.example.handcricket/" + R.raw.victory;
+                Uri u1 = Uri.parse(path1);
+                out1.setVideoURI(u1);
+                //out1.start();
+            case 3:
+                String path2 = "android.resource://com.example.handcricket/" + R.raw.defeat;
+                Uri u2 = Uri.parse(path2);
+                out1.setVideoURI(u2);
+                //out1.start();
+        }
         out1.start();
         out1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -361,6 +471,26 @@ public class MainActivity extends AppCompatActivity {
     }
     public void delay()throws InterruptedException{
         TimeUnit.SECONDS.sleep(3);
+    }
+    public void buttonsinvis(){
+        findViewById(R.id.button1).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button2).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button3).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button4).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button5).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button6).setVisibility(View.INVISIBLE);
+        findViewById(R.id.button9).setVisibility(View.INVISIBLE);
+        findViewById(R.id.imageButton).setVisibility(View.INVISIBLE);
+    }
+    public void buttonsvis(){
+        findViewById(R.id.button1).setVisibility(View.VISIBLE);
+        findViewById(R.id.button2).setVisibility(View.VISIBLE);
+        findViewById(R.id.button3).setVisibility(View.VISIBLE);
+        findViewById(R.id.button4).setVisibility(View.VISIBLE);
+        findViewById(R.id.button5).setVisibility(View.VISIBLE);
+        findViewById(R.id.button6).setVisibility(View.VISIBLE);
+        findViewById(R.id.button9).setVisibility(View.VISIBLE);
+        findViewById(R.id.imageButton).setVisibility(View.VISIBLE);
     }
     }
 
