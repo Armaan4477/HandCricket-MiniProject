@@ -26,27 +26,27 @@
         android:layout_width="match_parent"
         android:textColor="@color/white"
         android:layout_height="match_parent"
-        android:text="\n\n1]You will always bat first." />
+        android:text="\n\n1]You can choose ur option for the number by pressing the buttons." />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:textColor="@color/white"
         android:layout_height="match_parent"
-        android:text="\n\n2]If the number entered by you and \nthe computer is same then you are out." />
+        android:text="\n\n2]If the number entered by you and the computer is same then the batsman is out." />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:textColor="@color/white"
         android:layout_height="match_parent"
-        android:text="\n\n3]If the number is different then it \nwill be added to the total Score"/>
+        android:text="\n\n3]If the number is different then it \nwill be added to the Batsman's score."/>
     <TextView
         android:id="@+id/textView7"
         android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="\n\n4]After the 1st innings the computer \nwill try and chase your target." />
+        android:text="\n\n4]In the 2nd innings the other person tries and chase the target." />
 
     <TextView
         android:id="@+id/textView8"
