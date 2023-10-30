@@ -192,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, 12000); // 5000 milliseconds (5 seconds)
             } else {
-                buttonsinvis();
                 if (choice == 1) {
                     Total1 += b;
 
