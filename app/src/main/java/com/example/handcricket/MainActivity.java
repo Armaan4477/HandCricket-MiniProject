@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void button1(View view1) throws InterruptedException {
         Hand(1);
-
-        ;
     }
     public void button2(View view2) throws InterruptedException {
         Hand(2);
